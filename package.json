@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel -d lib/ src/",
+    "build:demo": "browserify example/index.js -o docs/sample.js",
     "demo": "budo example/index.js",
     "test": "jest"
   },
