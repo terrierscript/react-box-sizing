@@ -1,25 +1,53 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import BoxSizing from '../lib/'
+import { BorderBox, ContentBox, PaddingBox } from '../lib/'
 import singletonDom from 'singleton-dom'
 
-const Sample = ({type}) => {
-  return (
-    <BoxSizing type={type}>
-      <div style={{width: "50%", border: "5px solid #E18728",             textAlign: "center"}}>
-        Parent div with 50% width.
-          <div style={{
-            width: "90%",
-            textAlign: "center",
-            padding: "20%",
-            border: "4px solid black",
-            margin: "0.5em auto"
-          }}>
-            Child div with 90% width, 4px black border, and 20% padding
-          </div>
+const InnerItem = () => (
+  <div style={{width: "50%", border: "5px solid #E18728",             textAlign: "center"}}>
+    Parent div with 50% width.
+      <div style={{
+        width: "90%",
+        textAlign: "center",
+        padding: "20%",
+        border: "4px solid black",
+        margin: "0.5em auto"
+      }}>
+        Child div with 90% width, 4px black border, and 20% padding
       </div>
-    </BoxSizing>
-  )
+  </div>
+)
+
+const BorderBoxDemo = () => (
+  <div>
+    <BorderBox>
+      <InnerItem />
+    </BorderBox>
+  </div>
+)
+
+const ContentBoxDemo = () => (
+  <div>
+    <ContentBox>
+      <InnerItem />
+    </ContentBox>
+  </div>
+)
+
+const PaddingBoxDemo = () => (
+  <div>
+    <div>Firefox only!</div>
+    <PaddingBox>
+      <InnerItem />
+    </PaddingBox>
+  </div>
+)
+
+const componentMap = {
+  "border-box": BorderBoxDemo,
+  "content-box": ContentBoxDemo,
+  "padding-box": PaddingBoxDemo
 }
 
 const RadioSelect = ({type, value, onChange}) => (
@@ -60,7 +88,7 @@ class Demo extends React.Component{
         this.setState({ type: e.target.value })
       }} />
       <h3>Result</h3>
-      <Sample type={type} />
+      { componentMap[type]()}
     </div>
   }
 }

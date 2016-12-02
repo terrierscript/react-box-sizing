@@ -4,13 +4,14 @@ Tiny component for `box-sizing`.
 
 https://www.paulirish.com/2012/box-sizing-border-box-ftw/
 https://css-tricks.com/box-sizing/
+# API
+## Component
+### `<BorderBox>`
+### `<ContentBox>`
+### `<PaddingBox>`
 
-# Component
-## `<BoxSizing>`
 
-## `<BoxSizing type={value}>`
-* value: border-box, content-box pading-box
-* default: border-box
+## HOC
 
 
 see: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing

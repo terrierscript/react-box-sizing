@@ -29,35 +29,68 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Sample = function Sample(_ref) {
-  var type = _ref.type;
-
+var InnerItem = function InnerItem() {
   return _react2.default.createElement(
-    _lib2.default,
-    { type: type },
+    'div',
+    { style: { width: "50%", border: "5px solid #E18728", textAlign: "center" } },
+    'Parent div with 50% width.',
     _react2.default.createElement(
       'div',
-      { style: { width: "50%", border: "5px solid #E18728", textAlign: "center" } },
-      'Parent div with 50% width.',
-      _react2.default.createElement(
-        'div',
-        { style: {
-            width: "90%",
-            textAlign: "center",
-            padding: "20%",
-            border: "4px solid black",
-            margin: "0.5em auto"
-          } },
-        'Child div with 90% width, 4px black border, and 20% padding'
-      )
+      { style: {
+          width: "90%",
+          textAlign: "center",
+          padding: "20%",
+          border: "4px solid black",
+          margin: "0.5em auto"
+        } },
+      'Child div with 90% width, 4px black border, and 20% padding'
     )
   );
 };
 
-var RadioSelect = function RadioSelect(_ref2) {
-  var type = _ref2.type,
-      value = _ref2.value,
-      onChange = _ref2.onChange;
+var BorderBoxDemo = function BorderBoxDemo() {
+  return _react2.default.createElement(
+    _lib.BorderBox,
+    null,
+    _react2.default.createElement(InnerItem, null)
+  );
+};
+
+var ContentBoxDemo = function ContentBoxDemo() {
+  return _react2.default.createElement(
+    _lib.ContentBox,
+    null,
+    _react2.default.createElement(InnerItem, null)
+  );
+};
+
+var PaddingBoxDemo = function PaddingBoxDemo() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      null,
+      'Firefox only!'
+    ),
+    _react2.default.createElement(
+      _lib.PaddingBox,
+      null,
+      _react2.default.createElement(InnerItem, null)
+    )
+  );
+};
+
+var componentMap = {
+  "border-box": BorderBoxDemo,
+  "content-box": ContentBoxDemo,
+  "padding-box": PaddingBoxDemo
+};
+
+var RadioSelect = function RadioSelect(_ref) {
+  var type = _ref.type,
+      value = _ref.value,
+      onChange = _ref.onChange;
   return _react2.default.createElement(
     'label',
     { style: { padding: "0.2em", fontWeight: "bold" } },
@@ -131,7 +164,7 @@ var Demo = function (_React$Component) {
           null,
           'Result'
         ),
-        _react2.default.createElement(Sample, { type: type })
+        componentMap[type]()
       );
     }
   }]);
