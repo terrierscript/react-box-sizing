@@ -21,17 +21,19 @@ const InnerItem = () => (
 
 const CssEmulate = ({type}) => {
   const css = `
-  html {
+  .component-item {
     box-sizing: ${type};
   }
-  *, *:before, *:after {
+  .component-item *,
+  .component-item *:before,
+  .component-item *:after {
     box-sizing: inherit;
   }
   `
   const style = {
     border: "1px solid #ccc",
     background: "#d9d9d9",
-    borderRadius: "8px"
+    borderRadius: 8
   }
   return <pre style={style}>
     <code>
@@ -99,6 +101,17 @@ const Radio = (props) => {
   )
 }
 
+const Result = ({component}) => {
+  const style = {
+    border: "1px solid #ccc",
+    padding: 20,
+    borderRadius: 8
+  }
+
+  return <div style={style}>
+    {component}
+  </div>
+}
 
 class Demo extends React.Component{
   constructor(){
@@ -116,7 +129,7 @@ class Demo extends React.Component{
         this.setState({ type: e.target.value })
       }} />
       <h3>Result</h3>
-      { componentMap[type]()}
+      <Result component={ componentMap[type]() } />
       <h3>CSS</h3>
       <CssEmulate type={type} />
     </div>

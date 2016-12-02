@@ -5,7 +5,7 @@ const { style, merge, select } = require('glamor')
 const boxSizing = (type) => {
   return class BoxSizing extends React.Component {
     static propTypes = {
-      children: React.PropTypes.node.isRequired
+      children: React.PropTypes.node
     }
     render () {
       const {children} = this.props
