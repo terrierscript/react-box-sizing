@@ -4,6 +4,7 @@ import BoxSizing from '../lib/'
 import { BorderBox, ContentBox, PaddingBox } from '../src/'
 import singletonDom from 'singleton-dom'
 
+
 const InnerItem = () => (
   <div style={{width: "50%", border: "5px solid #E18728",             textAlign: "center"}}>
     Parent div with 50% width.
@@ -124,14 +125,18 @@ class Demo extends React.Component{
     const { type } = this.state
     return <div>
       <h1>react-box-sizing</h1>
-      <h3>box-sizing value</h3>
+
+      <h2>box-sizing value</h2>
       <Radio type={type} onChange={ (e) => {
         this.setState({ type: e.target.value })
       }} />
+
       <h3>Result</h3>
       <Result component={ componentMap[type]() } />
+
       <h3>CSS</h3>
       <CssEmulate type={type} />
+
     </div>
   }
 }
