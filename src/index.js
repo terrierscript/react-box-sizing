@@ -19,6 +19,6 @@ const boxSizing = (type) => {
 }
 
 exports.boxSizing = boxSizing
-exports.ContentBox = () => boxSizing('content-box')
-exports.BorderBox = () => boxSizing('border-box')
-exports.PaddingBox = () => boxSizing('padding-box')
+exports.ContentBox = boxSizing('content-box')
+exports.BorderBox = boxSizing('border-box')
+exports.PaddingBox = boxSizing('padding-box')

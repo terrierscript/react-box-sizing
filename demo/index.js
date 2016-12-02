@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import BoxSizing from '../lib/'
-import { BorderBox, ContentBox, PaddingBox } from '../lib/'
+import { BorderBox, ContentBox, PaddingBox } from '../src/'
 import singletonDom from 'singleton-dom'
 
 const InnerItem = () => (
@@ -18,6 +18,27 @@ const InnerItem = () => (
       </div>
   </div>
 )
+
+const CssEmulate = ({type}) => {
+  const css = `
+  html {
+    box-sizing: ${type};
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  `
+  const style = {
+    border: "1px solid #ccc",
+    background: "#d9d9d9",
+    borderRadius: "8px"
+  }
+  return <pre style={style}>
+    <code>
+      {css}
+    </code>
+  </pre>
+}
 
 const BorderBoxDemo = () => (
   <div>
@@ -37,7 +58,6 @@ const ContentBoxDemo = () => (
 
 const PaddingBoxDemo = () => (
   <div>
-    <div>Firefox only!</div>
     <PaddingBox>
       <InnerItem />
     </PaddingBox>
@@ -50,27 +70,35 @@ const componentMap = {
   "padding-box": PaddingBoxDemo
 }
 
-const RadioSelect = ({type, value, onChange}) => (
-  <label style={{padding: "0.2em", fontWeight: "bold"}}>
-    <input
-      type="radio"
-      value={value}
-      checked={type === value}
-      onChange={onChange}/>
-    {value}
-  </label>
+const RadioSelect = ({type, value, children, onChange}) => (
+  <div>
+    <label style={{padding: "0.2em", fontWeight: "bold"}}>
+      <input
+        type="radio"
+        value={value}
+        checked={type === value}
+        onChange={onChange}/>
+      {children}
+    </label>
+  </div>
 )
 
 const Radio = (props) => {
   return (
     <div>
-      <span>{"<BoxSizing type="}</span>
-      <RadioSelect value={"border-box"} {...props} />
-      <RadioSelect value={"content-box"} {...props} />
-      <span>{"/>"}</span>
+      <RadioSelect value={"border-box"} {...props} >
+        {"<BorderBox /> (box-sizing: border-box)"}
+      </RadioSelect>
+      <RadioSelect value={"content-box"} {...props} >
+        {"<ContentBox /> (box-sizing: content-box)"}
+      </RadioSelect>
+      <RadioSelect value={"padding-box"} {...props} >
+        {"<PaddingBox /> (box-sizing: padding-box) (Firefox only!)"}
+      </RadioSelect>
     </div>
   )
 }
+
 
 class Demo extends React.Component{
   constructor(){
@@ -89,6 +117,8 @@ class Demo extends React.Component{
       }} />
       <h3>Result</h3>
       { componentMap[type]()}
+      <h3>CSS</h3>
+      <CssEmulate type={type} />
     </div>
   }
 }
