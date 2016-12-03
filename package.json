@@ -26,7 +26,7 @@
   "author": "inuscript <inuscript@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "glamor": "^2.17.14"
+    "glamor": "^2.20.12"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
@@ -36,9 +36,9 @@
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0",
     "budo": "^9.2.1",
-    "jest": "^16.0.2",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "jest": "^17.0.3",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "singleton-dom": "^1.0.0"
   },
   "peerDependencies": {

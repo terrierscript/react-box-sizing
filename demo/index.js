@@ -43,36 +43,6 @@ const CssEmulate = ({type}) => {
   </pre>
 }
 
-const BorderBoxDemo = () => (
-  <div>
-    <BorderBox>
-      <InnerItem />
-    </BorderBox>
-  </div>
-)
-
-const ContentBoxDemo = () => (
-  <div>
-    <ContentBox>
-      <InnerItem />
-    </ContentBox>
-  </div>
-)
-
-const PaddingBoxDemo = () => (
-  <div>
-    <PaddingBox>
-      <InnerItem />
-    </PaddingBox>
-  </div>
-)
-
-const componentMap = {
-  "border-box": BorderBoxDemo,
-  "content-box": ContentBoxDemo,
-  "padding-box": PaddingBoxDemo
-}
-
 const RadioSelect = ({type, value, children, onChange}) => (
   <div>
     <label style={{padding: "0.2em", fontWeight: "bold"}}>
@@ -102,16 +72,27 @@ const Radio = (props) => {
   )
 }
 
-const Result = ({component}) => {
+const DemoBox = ({type, component: Component}) => {
+  const name = `<${Component.name}>`
   const style = {
     border: "1px solid #ccc",
     padding: 20,
+    margin: 20,
     borderRadius: 8
   }
 
-  return <div style={style}>
-    {component}
-  </div>
+  return (
+    <div style={style}>
+      <h2>{name}</h2>
+      <h3>Result</h3>
+      <Component>
+        <InnerItem />
+      </Component>
+
+      <h3>CSS</h3>
+      <CssEmulate type={type} />
+    </div>
+  )
 }
 
 class Demo extends React.Component{
@@ -125,18 +106,9 @@ class Demo extends React.Component{
     const { type } = this.state
     return <div>
       <h1>react-box-sizing</h1>
-
-      <h2>box-sizing value</h2>
-      <Radio type={type} onChange={ (e) => {
-        this.setState({ type: e.target.value })
-      }} />
-
-      <h3>Result</h3>
-      <Result component={ componentMap[type]() } />
-
-      <h3>CSS</h3>
-      <CssEmulate type={type} />
-
+      <DemoBox type="border-box" component={BorderBox} />
+      <DemoBox type="content-box" component={ContentBox} />
+      <DemoBox type="padding-box" component={PaddingBox} />
     </div>
   }
 }
