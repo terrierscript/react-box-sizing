@@ -1,10 +1,24 @@
-const React = require('react')
-const BoxSizing = require('./boxSizing')
+import React from 'react'
+import { style, merge, select } from 'glamor'
 
-const BorderBox = (props) => <BoxSizing type='border-box' {...props} />
-const ContentBox = (props) => <BoxSizing type='content-box' {...props} />
-const PaddingBox = (props) => <BoxSizing type='padding-box' {...props} />
+export default BoxSizing = ({ children, value }) => {
+  return (
+    <div {...merge(
+      style({ boxSizing: value}),
+      select(' *', { boxSizing: value}),
+      select(' *:after', { boxSizing: value}),
+      select(' *:before', { boxSizing: value})
+    )}>
+      {children}
+    </div>
+  )
+}
 
-exports.BorderBox = BorderBox
-exports.ContentBox = ContentBox
-exports.PaddingBox = PaddingBox
+BoxSizing.propTypes = {
+  children: React.PropTypes.node
+}
+
+
+export const BorderBox = (props) => <BoxSizing value='border-box' {...props} />
+export const ContentBox = (props) => <BoxSizing value='content-box' {...props} />
+export const PaddingBox = (props) => <BoxSizing value='padding-box' {...props} />
