@@ -1,0 +1,26 @@
+exports[`snapshot BorderBox 1`] = `
+<div
+  data-css-zt4q4s="">
+  <div>
+    This is Test
+  </div>
+</div>
+`;
+
+exports[`snapshot ContentBox 1`] = `
+<div
+  data-css-x8cdq="">
+  <div>
+    This is Test
+  </div>
+</div>
+`;
+
+exports[`snapshot PaddingBox 1`] = `
+<div
+  data-css-x8cdq="">
+  <div>
+    This is Test
+  </div>
+</div>
+`;

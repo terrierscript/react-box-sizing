@@ -1,7 +1,7 @@
 import React from 'react'
 import { style, merge, select } from 'glamor'
 
-export default BoxSizing = ({ children, value }) => {
+const BoxSizing = ({ children, value }) => {
   return (
     <div {...merge(
       style({ boxSizing: value}),
