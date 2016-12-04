@@ -118,6 +118,12 @@ class Demo extends React.Component{
     const { type } = this.state
     return <div>
       <h1>react-box-sizing</h1>
+      <div><a href="https://github.com/inuscript/react-box-sizing">Source Code (github)</a></div>
+
+      <div>
+        This example is based on this page : <a target="_blank" href="https://css-tricks.com/box-sizing/">Box Sizing | CSS Tricks</a> .
+      </div>
+
       <DemoBox type="border-box" component={BorderBox} />
       <DemoBox type="content-box" component={ContentBox} />
       <DemoBox type="padding-box" component={PaddingBox} memo={"(Firefox only)"} />

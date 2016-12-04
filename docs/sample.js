@@ -200,6 +200,17 @@ var Demo = function (_React$Component) {
           null,
           'react-box-sizing'
         ),
+        _react2.default.createElement(
+          'div',
+          null,
+          'This example use ',
+          _react2.default.createElement(
+            'a',
+            { href: 'https://css-tricks.com/box-sizing/' },
+            'this pages codepen'
+          ),
+          ' .'
+        ),
         _react2.default.createElement(DemoBox, { type: 'border-box', component: _src.BorderBox }),
         _react2.default.createElement(DemoBox, { type: 'content-box', component: _src.ContentBox }),
         _react2.default.createElement(DemoBox, { type: 'padding-box', component: _src.PaddingBox, memo: "(Firefox only)" })
