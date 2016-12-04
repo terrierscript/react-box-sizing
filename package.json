@@ -1,7 +1,7 @@
 {
   "name": "react-box-sizing",
   "version": "0.0.1",
-  "description": "",
+  "description": "Tiny component for box-sizing",
   "main": "lib/index.js",
   "scripts": {
     "build:proj": "babel src/index.js > lib/index.js",
@@ -29,6 +29,7 @@
   "dependencies": {
     "glamor": "^2.20.12"
   },
+  "repo": "https://github.com/inuscript/react-box-sizing",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
