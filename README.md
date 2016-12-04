@@ -12,7 +12,10 @@ import { BorderBox } from 'react-box-sizing'
 
 const YourComponent = (
   <BorderBox>
-    <div>Your Item</div>
+    <div>This</div>
+    <div>Items</div>
+    <div>is</div>
+    <div>border-box</div>
   </BorderBox>
 )
 ```
@@ -33,27 +36,13 @@ This component inject this style.
 
 # Component
 ## `<BorderBox>`
-Append `box-sizing: border-box`
+Inject `box-sizing: border-box`
 
 ## `<ContentBox>`
-Append `box-sizing: content-box`
+Inject `box-sizing: content-box`
 
 ## `<PaddingBox>`
-Append `box-sizing: padding-box`
+Inject `box-sizing: padding-box`
 
 see: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
 
-# Usage
-
-```js
-import BoxSizing from 'react-box-sizing'
-
-const Example = () =>(
-  <BoxSizing>
-    <div>This</div>
-    <div>Items</div>
-    <div>is</div>
-    <div>border-box</div>
-  </BoxSizing>
-)
-```
