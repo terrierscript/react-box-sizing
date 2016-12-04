@@ -5,29 +5,55 @@ import { BorderBox, ContentBox, PaddingBox } from '../src/'
 import singletonDom from 'singleton-dom'
 
 
-const InnerItem = () => (
-  <div style={{width: "50%", border: "5px solid #E18728",             textAlign: "center"}}>
-    Parent div with 50% width.
-      <div style={{
-        width: "90%",
-        textAlign: "center",
-        padding: "20%",
-        border: "4px solid black",
-        margin: "0.5em auto"
-      }}>
-        Child div with 90% width, 4px black border, and 20% padding
-      </div>
-  </div>
-)
+const InnerItem = () => {
+  const parent = {
+    width: "50%",
+    border: "5px solid #E18728",
+    float: "left",
+    textAlign: "center"
+  }
 
-const CssEmulate = ({type}) => {
+  const child = {
+    width: "90%",
+    textAlign: "center",
+    padding: "20%",
+    border: "4px solid black",
+    margin: "0.5em auto"
+  }
+  const twins = {
+    width: "50%",
+    padding: "1em",
+    border: "4px solid black",
+    float: "left"
+  }
+  return (
+    <div>
+      <div style={parent}>
+        Parent div with 50% width.
+        <div style={child}>
+          Child div with 90% width, 4px black border, and 20% padding
+        </div>
+        <div style={twins}>
+          <p>Child div with 50% width, 4px black border, and 1em padding</p>
+        </div>
+        <div style={twins}>
+          <p>Child div with 50% width, 4px black border, and 1em padding</p>
+        </div>
+      </div>
+      <div style={{clear: "both"}} />
+    </div>
+  )
+}
+
+const CssEmulate = ({name, type}) => {
   const css = `
-  ComponentItem {
+  // This is Dummy CSS
+  ${name} {
     box-sizing: ${type};
   }
-  ComponentItem *,
-  ComponentItem *:before,
-  ComponentItem *:after {
+  ${name} *,
+  ${name} *:before,
+  ${name} *:after {
     box-sizing: inherit;
   }
   `
@@ -56,24 +82,8 @@ const RadioSelect = ({type, value, children, onChange}) => (
   </div>
 )
 
-const Radio = (props) => {
-  return (
-    <div>
-      <RadioSelect value={"border-box"} {...props} >
-        {"<BorderBox /> (box-sizing: border-box)"}
-      </RadioSelect>
-      <RadioSelect value={"content-box"} {...props} >
-        {"<ContentBox /> (box-sizing: content-box)"}
-      </RadioSelect>
-      <RadioSelect value={"padding-box"} {...props} >
-        {"<PaddingBox /> (box-sizing: padding-box) (Firefox only!)"}
-      </RadioSelect>
-    </div>
-  )
-}
-
-const DemoBox = ({type, component: Component}) => {
-  const name = `<${Component.name}>`
+const DemoBox = ({type, memo = "", component: Component}) => {
+  const name = `<${Component.name}> ${memo}`
   const style = {
     border: "1px solid #ccc",
     padding: 20,
@@ -92,7 +102,7 @@ const DemoBox = ({type, component: Component}) => {
       </Component>
 
       <h3>Injected Style</h3>
-      <CssEmulate type={type} />
+      <CssEmulate type={type} name={name}/>
     </div>
   )
 }
@@ -110,7 +120,7 @@ class Demo extends React.Component{
       <h1>react-box-sizing</h1>
       <DemoBox type="border-box" component={BorderBox} />
       <DemoBox type="content-box" component={ContentBox} />
-      <DemoBox type="padding-box" component={PaddingBox} />
+      <DemoBox type="padding-box" component={PaddingBox} memo={"(Firefox only)"} />
     </div>
   }
 }

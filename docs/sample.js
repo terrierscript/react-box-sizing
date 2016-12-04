@@ -3,8 +3,6 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -32,28 +30,66 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var InnerItem = function InnerItem() {
+  var parent = {
+    width: "50%",
+    border: "5px solid #E18728",
+    float: "left",
+    textAlign: "center"
+  };
+
+  var child = {
+    width: "90%",
+    textAlign: "center",
+    padding: "20%",
+    border: "4px solid black",
+    margin: "0.5em auto"
+  };
+  var twins = {
+    width: "50%",
+    padding: "1em",
+    border: "4px solid black",
+    float: "left"
+  };
   return _react2.default.createElement(
     'div',
-    { style: { width: "50%", border: "5px solid #E18728", textAlign: "center" } },
-    'Parent div with 50% width.',
+    null,
     _react2.default.createElement(
       'div',
-      { style: {
-          width: "90%",
-          textAlign: "center",
-          padding: "20%",
-          border: "4px solid black",
-          margin: "0.5em auto"
-        } },
-      'Child div with 90% width, 4px black border, and 20% padding'
-    )
+      { style: parent },
+      'Parent div with 50% width.',
+      _react2.default.createElement(
+        'div',
+        { style: child },
+        'Child div with 90% width, 4px black border, and 20% padding'
+      ),
+      _react2.default.createElement(
+        'div',
+        { style: twins },
+        _react2.default.createElement(
+          'p',
+          null,
+          'Child div with 50% width, 4px black border, and 1em padding'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { style: twins },
+        _react2.default.createElement(
+          'p',
+          null,
+          'Child div with 50% width, 4px black border, and 1em padding'
+        )
+      )
+    ),
+    _react2.default.createElement('div', { style: { clear: "both" } })
   );
 };
 
 var CssEmulate = function CssEmulate(_ref) {
-  var type = _ref.type;
+  var name = _ref.name,
+      type = _ref.type;
 
-  var css = '\n  ComponentItem {\n    box-sizing: ' + type + ';\n  }\n  ComponentItem *,\n  ComponentItem *:before,\n  ComponentItem *:after {\n    box-sizing: inherit;\n  }\n  ';
+  var css = '\n  // This is Dummy CSS\n  ' + name + ' {\n    box-sizing: ' + type + ';\n  }\n  ' + name + ' *,\n  ' + name + ' *:before,\n  ' + name + ' *:after {\n    box-sizing: inherit;\n  }\n  ';
   var style = {
     border: "1px solid #ccc",
     background: "#d9d9d9",
@@ -91,33 +127,13 @@ var RadioSelect = function RadioSelect(_ref2) {
   );
 };
 
-var Radio = function Radio(props) {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      RadioSelect,
-      _extends({ value: "border-box" }, props),
-      "<BorderBox /> (box-sizing: border-box)"
-    ),
-    _react2.default.createElement(
-      RadioSelect,
-      _extends({ value: "content-box" }, props),
-      "<ContentBox /> (box-sizing: content-box)"
-    ),
-    _react2.default.createElement(
-      RadioSelect,
-      _extends({ value: "padding-box" }, props),
-      "<PaddingBox /> (box-sizing: padding-box) (Firefox only!)"
-    )
-  );
-};
-
 var DemoBox = function DemoBox(_ref3) {
   var type = _ref3.type,
+      _ref3$memo = _ref3.memo,
+      memo = _ref3$memo === undefined ? "" : _ref3$memo,
       Component = _ref3.component;
 
-  var name = '<' + Component.name + '>';
+  var name = '<' + Component.name + '> ' + memo;
   var style = {
     border: "1px solid #ccc",
     padding: 20,
@@ -153,7 +169,7 @@ var DemoBox = function DemoBox(_ref3) {
       null,
       'Injected Style'
     ),
-    _react2.default.createElement(CssEmulate, { type: type })
+    _react2.default.createElement(CssEmulate, { type: type, name: name })
   );
 };
 
@@ -186,7 +202,7 @@ var Demo = function (_React$Component) {
         ),
         _react2.default.createElement(DemoBox, { type: 'border-box', component: _src.BorderBox }),
         _react2.default.createElement(DemoBox, { type: 'content-box', component: _src.ContentBox }),
-        _react2.default.createElement(DemoBox, { type: 'padding-box', component: _src.PaddingBox })
+        _react2.default.createElement(DemoBox, { type: 'padding-box', component: _src.PaddingBox, memo: "(Firefox only)" })
       );
     }
   }]);
