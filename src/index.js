@@ -1,14 +1,14 @@
 import React from 'react'
-import { style, merge, select } from 'glamor'
+import { css } from 'glamor'
 
 const BoxSizing = ({ children, value }) => {
   return (
-    <div {...merge(
-      style({ boxSizing: value}),
-      select(' *', { boxSizing: value}),
-      select(' *:after', { boxSizing: value}),
-      select(' *:before', { boxSizing: value})
-    )}>
+    <div { ...css({
+      boxSizing: value,
+      '& *': { boxSizing: value },
+      '& *:after': { boxSizing: value},
+      '& *:before': { boxSizing: value}
+    }) }>
       {children}
     </div>
   )
