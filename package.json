@@ -2,10 +2,10 @@
   "name": "react-box-sizing",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "babel -d lib/ src/index.js",
-    "build:demo": "browserify demo/index.js -o docs/sample.js",
+    "build": "babel src/index.js > lib/index.js",
+    "build:docs": "npm run build; browserify demo/index.js -o docs/sample.js",
     "demo": "budo demo/index.js",
     "test": "jest"
   },
@@ -21,7 +21,7 @@
     "css"
   ],
   "files": [
-    "lib/"
+    "lib/index.js"
   ],
   "author": "inuscript <inuscript@gmail.com>",
   "license": "MIT",

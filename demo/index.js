@@ -22,12 +22,12 @@ const InnerItem = () => (
 
 const CssEmulate = ({type}) => {
   const css = `
-  .component-item {
+  ComponentItem {
     box-sizing: ${type};
   }
-  .component-item *,
-  .component-item *:before,
-  .component-item *:after {
+  ComponentItem *,
+  ComponentItem *:before,
+  ComponentItem *:after {
     box-sizing: inherit;
   }
   `
@@ -85,11 +85,13 @@ const DemoBox = ({type, component: Component}) => {
     <div style={style}>
       <h2>{name}</h2>
       <h3>Result</h3>
+
+      <h4>Sample View</h4>
       <Component>
         <InnerItem />
       </Component>
 
-      <h3>CSS</h3>
+      <h3>Injected Style</h3>
       <CssEmulate type={type} />
     </div>
   )
