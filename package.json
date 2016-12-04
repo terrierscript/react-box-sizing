@@ -4,8 +4,9 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src/index.js > lib/index.js",
-    "build:docs": "npm run build; browserify demo/index.js -o docs/sample.js",
+    "build:proj": "babel src/index.js > lib/index.js",
+    "build:docs": "browserify demo/index.js -o docs/sample.js",
+    "build": "npm run build:proj; npm run build:docs",
     "demo": "budo demo/index.js",
     "test": "jest"
   },
