@@ -1,52 +1,52 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import BoxSizing from '../lib/'
-import { BorderBox, ContentBox, PaddingBox } from '../src/'
 import singletonDom from 'singleton-dom'
+import { css } from 'glamor'
 
+import { BorderBox, ContentBox, PaddingBox } from '../src/'
 
 const InnerItem = () => {
-  const parent = {
+  const parent = css({
     width: "50%",
     border: "5px solid #E18728",
     float: "left",
     textAlign: "center"
-  }
+  })
 
-  const child = {
+  const child = css({
     width: "90%",
     textAlign: "center",
     padding: "20%",
     border: "4px solid black",
     margin: "0.5em auto"
-  }
-  const twins = {
+  })
+  const twins = css({
     width: "50%",
     padding: "1em",
     border: "4px solid black",
     float: "left"
-  }
+  })
   return (
     <div>
-      <div style={parent}>
+      <div className={parent}>
         Parent div with 50% width.
-        <div style={child}>
+        <div className={child}>
           Child div with 90% width, 4px black border, and 20% padding
         </div>
-        <div style={twins}>
+        <div className={twins}>
           <p>Child div with 50% width, 4px black border, and 1em padding</p>
         </div>
-        <div style={twins}>
+        <div className={twins}>
           <p>Child div with 50% width, 4px black border, and 1em padding</p>
         </div>
       </div>
-      <div style={{clear: "both"}} />
+      <div className={css({clear: "both"})} />
     </div>
   )
 }
 
 const CssEmulate = ({name, type}) => {
-  const css = `
+  const dummyCss = `
   // This is Dummy CSS
   ${name} {
     box-sizing: ${type};
@@ -57,21 +57,21 @@ const CssEmulate = ({name, type}) => {
     box-sizing: inherit;
   }
   `
-  const style = {
+  const style = css({
     border: "1px solid #ccc",
     background: "#d9d9d9",
     borderRadius: 8
-  }
-  return <pre style={style}>
+  })
+  return <pre className={style}>
     <code>
-      {css}
+      {dummyCss}
     </code>
   </pre>
 }
 
 const RadioSelect = ({type, value, children, onChange}) => (
   <div>
-    <label style={{padding: "0.2em", fontWeight: "bold"}}>
+    <label className={ css({padding: "0.2em", fontWeight: "bold"}) }>
       <input
         type="radio"
         value={value}
@@ -84,15 +84,15 @@ const RadioSelect = ({type, value, children, onChange}) => (
 
 const DemoBox = ({type, memo = "", component: Component}) => {
   const name = `<${Component.name}> ${memo}`
-  const style = {
+  const style = css({
     border: "1px solid #ccc",
     padding: 20,
     margin: 20,
     borderRadius: 8
-  }
+  })
 
   return (
-    <div style={style}>
+    <div className={style}>
       <h2>{name}</h2>
       <h3>Result</h3>
 
