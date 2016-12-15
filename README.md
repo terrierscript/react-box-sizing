@@ -20,7 +20,7 @@ const YourComponent = (
 )
 ```
 
-This component inject this style.
+This component inject this style
 
 ```css
 // This is DUMMY CSS
@@ -33,6 +33,8 @@ This component inject this style.
   box-sizing: inherit;
 }
 ```
+
+This module use [glammor](https://github.com/threepointone/glamor) for inject css.
 
 # Component
 ## `<BorderBox>`
