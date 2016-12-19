@@ -1,6 +1,6 @@
 exports[`snapshot BorderBox 1`] = `
 <div
-  data-css-zt4q4s="">
+  data-css-sugk1c="">
   <div>
     This is Test
   </div>
@@ -9,7 +9,7 @@ exports[`snapshot BorderBox 1`] = `
 
 exports[`snapshot ContentBox 1`] = `
 <div
-  data-css-x8cdq="">
+  data-css-1tbdkyc="">
   <div>
     This is Test
   </div>
@@ -18,7 +18,7 @@ exports[`snapshot ContentBox 1`] = `
 
 exports[`snapshot PaddingBox 1`] = `
 <div
-  data-css-x8cdq="">
+  data-css-1tbdkyc="">
   <div>
     This is Test
   </div>
