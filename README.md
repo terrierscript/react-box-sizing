@@ -1,5 +1,7 @@
 # react-box-sizing
 
+[![Build Status](https://travis-ci.org/inuscript/react-box-sizing.svg?branch=master)](https://travis-ci.org/inuscript/react-box-sizing)
+
 Tiny component for `box-sizing`.
 
 * https://www.paulirish.com/2012/box-sizing-border-box-ftw/
