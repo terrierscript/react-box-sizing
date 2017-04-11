@@ -1,6 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`snapshot BorderBox 1`] = `
 <div
-  data-css-sugk1c="">
+  data-css-sugk1c=""
+>
   <div>
     This is Test
   </div>
@@ -9,7 +12,8 @@ exports[`snapshot BorderBox 1`] = `
 
 exports[`snapshot ContentBox 1`] = `
 <div
-  data-css-1tbdkyc="">
+  data-css-1tbdkyc=""
+>
   <div>
     This is Test
   </div>
@@ -18,7 +22,8 @@ exports[`snapshot ContentBox 1`] = `
 
 exports[`snapshot PaddingBox 1`] = `
 <div
-  data-css-1tbdkyc="">
+  data-css-1tbdkyc=""
+>
   <div>
     This is Test
   </div>

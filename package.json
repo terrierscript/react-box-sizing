@@ -27,7 +27,8 @@
   "author": "inuscript <inuscript@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "glamor": "^2.20.20"
+    "glamor": "^2.20.20",
+    "prop-types": "^15.5.7"
   },
   "repository": "https://github.com/inuscript/react-box-sizing",
   "devDependencies": {
@@ -38,10 +39,10 @@
     "babel-preset-react": "^6.22.0",
     "babelify": "^7.3.0",
     "budo": "^9.2.1",
-    "jest": "^18.1.0",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-test-renderer": "^15.4.1",
+    "jest": "^19.0.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-test-renderer": "^15.5.4",
     "singleton-dom": "^1.0.0"
   },
   "peerDependencies": {

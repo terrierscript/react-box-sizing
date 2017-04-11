@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types"
 import { css } from 'glamor'
 
 const BoxSizing = ({ children, value }) => {
@@ -15,7 +16,7 @@ const BoxSizing = ({ children, value }) => {
 }
 
 BoxSizing.propTypes = {
-  children: React.PropTypes.node
+  children: PropTypes.node
 }
 
 
