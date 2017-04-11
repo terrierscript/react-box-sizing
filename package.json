@@ -1,6 +1,6 @@
 {
   "name": "react-box-sizing",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Tiny component for box-sizing",
   "main": "lib/index.js",
   "scripts": {
