@@ -1,6 +1,6 @@
 import React from 'react'
 import assert from 'assert'
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer'
 import { BorderBox, ContentBox, PaddingBox } from '../'
 import { styleSheet } from 'glamor'
 
