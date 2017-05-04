@@ -27,7 +27,7 @@
   "author": "inuscript <inuscript@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "glamor": "^2.20.20",
+    "glamor": "^2.20.25",
     "prop-types": "^15.5.7"
   },
   "repository": "https://github.com/inuscript/react-box-sizing",
