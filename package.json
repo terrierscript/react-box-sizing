@@ -39,7 +39,7 @@
     "babel-preset-react": "^6.22.0",
     "babelify": "^7.3.0",
     "budo": "^9.2.1",
-    "jest": "^19.0.2",
+    "jest": "^20.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
