@@ -28,7 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "glamor": "^2.20.20",
-    "prop-types": "^15.5.7"
+    "prop-types": "^15.5.9"
   },
   "repository": "https://github.com/inuscript/react-box-sizing",
   "devDependencies": {
